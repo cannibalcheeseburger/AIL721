@@ -3,3 +3,5 @@
 *.pth
 /slides
 __pycache__
+*.zip
+*.dat

@@ -17,13 +17,13 @@ if __name__ == '__main__':
     model = WineModel()
     n_epochs = min(int(args.n_epochs), 200)
 
+    batch_size = 32
     lr = 0.01
     train_csv_path = "./Train.csv"
 
     csv_data = pd.read_csv(train_csv_path)
-    mid = round(len(csv_data)*0.2)
     train_dataset  = WineDataset(csv_data)
-    train_loader = DataLoader(train_dataset, batch_size = 32, shuffle=True)
+    train_loader = DataLoader(train_dataset, batch_size = batch_size, shuffle=True)
 
     loss_function = nn.CrossEntropyLoss()
     optimizer = torch.optim.Adam(model.parameters(),lr = lr)

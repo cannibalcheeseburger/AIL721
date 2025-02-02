@@ -8,9 +8,19 @@ import torch.optim as optim
 #Loading the training data
 with open('train.pkl', 'rb') as file:
     train_data = pickle.load(file)
-#device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
-
-device = torch.device("mps" if torch.backends.mps.is_available() else "cpu")
+    
+#if torch.backends.mps.is_available():
+#    device = torch.device('mps')
+#    print("Using MPS (Metal Performance Shaders) device")
+# Check for CUDA (NVIDIA GPU support)
+if torch.cuda.is_available():
+    device = torch.device('cuda')
+    print("Using CUDA device")
+# Fallback to CPU if neither MPS nor CUDA is available
+else:
+    device = torch.device('cpu')
+    print("Using CPU device")
+#device = torch.device("mps" if torch.backends.mps.is_available() else "cpu")
 
 
 
@@ -35,9 +45,10 @@ train_size = int(0.8 * len(train_dataset))
 val_size = len(train_dataset) - train_size
 
 # Use random_split to divide the dataset
+batch_size = 64
 train_dataset, val_dataset = random_split(train_dataset, [train_size, val_size])
-train_dataloader = DataLoader(train_dataset,batch_size=64,shuffle=True)
-val_dataloader = DataLoader(val_dataset,batch_size=64,shuffle=False)
+train_dataloader = DataLoader(train_dataset,batch_size=batch_size,shuffle=True)
+val_dataloader = DataLoader(val_dataset,batch_size=batch_size,shuffle=False)
 
 # Step 2: MLP creation
 ##############################################
@@ -129,7 +140,6 @@ torch.save(model.state_dict(), model_path)
 
 #Implement your logic here
 ##############################################
-
 
 #Inference (Don't change the code)
 def evaluate(model,test_data_path):

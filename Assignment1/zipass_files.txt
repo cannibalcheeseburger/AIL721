@@ -1,0 +1,12 @@
+Q1/avg-error-pytorch.log
+Q1/loss-pytorch.png
+Q1/avg-error-numpy.log
+Q1/loss-numpy.png
+Q1/shallow_numpy.py
+Q1/shallow_pytorch.py
+Q2.1/assi_LR1_quest.py
+Q2.2/dataset.py
+Q2.2/eval.py
+Q2.2/model.py
+Q2.2/train.py
+Q3/mnist.py
