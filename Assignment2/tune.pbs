@@ -1,0 +1,25 @@
+#!/bin/bash
+#PBS -N ResNet_Tuning
+#PBS -l select=1:ncpus=4:ngpus=1:centos=icelake:mem=16G
+#PBS -l walltime=167:59:59
+#PBS -P ail721.aib242289.course
+#PBS -o output_tune.log
+#PBS -e error_tune.log
+#PBS -m bea
+#PBS -M $USER@iitd.ac.in
+
+
+
+cd ~/AIL721/Assignment2/
+
+# Load Anaconda module
+module load apps/anaconda/3
+
+# Activate your environment
+source activate ~/myenv
+
+# Unload Anaconda module
+module unload apps/anaconda/3
+
+# Run the training script with parameters
+python tune.py

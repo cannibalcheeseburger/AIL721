@@ -1,0 +1,1 @@
+rsync -aWvr --progress  aib242289@hpc.iitd.ac.in:~/AIL721/Assignment2/resnet_model.pth ./Assignment2

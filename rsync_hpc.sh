@@ -1,1 +1,1 @@
-rsync -aWv --progress --files-from='rsync_files.txt' ./ aib242289@hpc.iitd.ac.in:~/AIL721/
+rsync -aWvr --delete --progress --files-from='rsync_files.txt' ./ aib242289@hpc.iitd.ac.in:~/AIL721/

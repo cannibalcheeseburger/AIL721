@@ -1,0 +1,22 @@
+#!/bin/bash
+#PBS -N resnet_train
+#PBS -l select=1:ncpus=4:ngpus=1:centos=icelake:mem=16G
+#PBS -l walltime=1:00:00
+#PBS -P ail721.aib242289.course
+#PBS -o output_${PBS_JOBID}.log
+#PBS -e error_${PBS_JOBID}.log
+
+cd ~/AIL721/Assignment2/
+
+# Load Anaconda module
+module load apps/anaconda/3
+
+# Activate your environment
+source activate ~/myenv
+
+# Unload Anaconda module
+module unload apps/anaconda/3
+
+# Run the training script with parameters
+python train.py --train_data 'Butterfly/train' --model_ckpt ./ 
+python eval.py  --model_ckpt ./resnet_model.pth --test_imgs SAMPLE_TEST_DATA/images

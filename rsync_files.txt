@@ -11,3 +11,12 @@ Assignment1/Q3/mnist.py
 Assignment1/Q3/train.pkl
 Assignment1/requirement.txt
 Assignment1/Q3/hpc_a1_q3.sh
+Assignment2/Butterfly
+Assignment2/train.py
+Assignment2/requirement.txt
+Assignment2/qsub.pbs
+Assignment2/qsub.sh
+Assignment2/tune.py
+Assignment2/tune.pbs
+Assignment2/SAMPLE_TEST_DATA
+Assignment2/eval.py
