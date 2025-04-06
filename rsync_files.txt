@@ -20,3 +20,4 @@ Assignment2/tune.py
 Assignment2/tune.pbs
 Assignment2/SAMPLE_TEST_DATA
 Assignment2/eval.py
+Assignment3/clstm.py
